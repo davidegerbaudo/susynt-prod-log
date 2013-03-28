@@ -53,8 +53,14 @@ sampleDirs = sorted([t for t in [d  for inputdir in inputdirs for d in glob.glob
 
 def getProcessedEvents(filename, histoName='', binLabel='', printBinLabels=False) :
     f = r.TFile.Open(filename)
+    if not f :
+        if verbose : print "invalid file %s"%filename
+        return 0
     histo = f.Get(histoName)
     h = histo
+    if not h :
+        if verbose : print "missing %s from %s"%(histoName, filename)
+        return 0
     if printBinLabels : print [h.GetXaxis().GetBinLabel(i) for i in range(1,1+h.GetNbinsX())]
     processedEvents = histo.GetBinContent(histo.GetXaxis().FindBin(binLabel))
     f.Close()
