@@ -42,7 +42,7 @@ source MultiLep/installscripts/install_script.sh
 echo "Done compiling                    -- `date`"
 
 cd ..
-mkdir ${SUBM_DIR}
+svn co svn+ssh://svn.cern.ch/reps/atlasinst/Institutes/UCIrvine/SUSYAnalysis/SusyCommon/trunk/grid ${SUBM_DIR}
 cd    ${SUBM_DIR}
 
 localSetupPandaClient
