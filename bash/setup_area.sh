@@ -22,7 +22,7 @@
 #
 # davide.gerbaudo@gmail.com, Mar 2013
 
-TAG="n0138"
+TAG="n0139"
 
 PROD_DIR="prod_${TAG}"
 SUBM_DIR="subm_${TAG}"
@@ -35,7 +35,7 @@ cd    ${PROD_DIR}
 svn co svn+ssh://svn.cern.ch/reps/atlasoff/PhysicsAnalysis/SUSYPhys/SUSYTools/tags/SUSYTools-00-02-08               SUSYTools
 svn co svn+ssh://svn.cern.ch/reps/atlasphys/Physics/SUSY/Analyses/WeakProduction/MultiLep/tags/MultiLep-01-04-14    MultiLep
 svn co svn+ssh://svn.cern.ch/reps/atlasinst/Institutes/UCIrvine/SUSYAnalysis/SusyNtuple/tags/SusyNtuple-00-00-53    SusyNtuple
-svn co svn+ssh://svn.cern.ch/reps/atlasinst/Institutes/UCIrvine/SUSYAnalysis/SusyCommon/tags/SusyCommon-00-00-67    SusyCommon
+svn co svn+ssh://svn.cern.ch/reps/atlasinst/Institutes/UCIrvine/SUSYAnalysis/SusyCommon/tags/SusyCommon-00-00-68    SusyCommon
 
 source MultiLep/installscripts/install_script.sh
 
