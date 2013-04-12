@@ -46,50 +46,38 @@ def commonPrefix(list) : return os.path.commonprefix(list)
 def commonSuffix(list) : return os.path.commonprefix([l[::-1] for l in list])[::-1]
 def shorten(name, pref, suff) : return name.lstrip(pref).rstrip(suff).rstrip()
 def formattedPercentDelta(v, vr) :
-    return "{0:.2f}%".format(100.*(v-vr)/vr) if v is not None and vr and v!=vr else '--'
+    return "{0:.1f}%".format(100.*(v-vr)/vr) if v is not None and vr and v!=vr else '--'
 
 counts      = dict([(f, countsFromFile(f)) for f in inputfiles])
 allDatasets = sorted(list(set([d for cnts in counts.values() for d in cnts.keys()])))
 fnP, fnS    = commonPrefix(inputfiles), commonSuffix(inputfiles)
 dsP, dsS    = commonPrefix(allDatasets), commonSuffix(allDatasets)
+refFn       = inputfiles[0]
+refCnt      = dict([(s, counts[refFn][s] if s in counts[refFn] else None) for s in allDatasets])
 
-refFn  = inputfiles[0]
-refCnt = dict([(s, counts[refFn][s] if s in counts[refFn] else None) for s in allDatasets])
-col0W, colW = 64, colW
-
-hrule = '-'*(col0W + (len(inputfiles)+1)*colW)
+defaultCol0W = 64
+col0W = max([defaultCol0W, min([len(f if fullnames else shorten(f,fnP, fnS)) for f in allDatasets])])
+hrule = '-'*(col0W + (2*len(inputfiles)-1)*colW)
 cell0, cell = '{0:<'+str(col0W)+'}', '{0:>'+str(colW)+'}'
 
-header = ''.join([cell0.format('')]
-                 +[cell.format(v) for v in []
-                   + [fr if fullnames else shorten(fr, fnP, fnS) for fr in [refFn]]
-                   + [c for c in # flatten list [(s,delta),...]
-                      [f if fullnames else shorten(f, fnP, fnS), 'delta']
-                      for f in inputfiles[1:]]
-                   ])
-
-lines = [''.join([cell0.format(s if fullnames else shorten(s, dsP, dsS))]
-                 +[cell.format(v) for v in [refCnt[s] if s in refCnt else '--']
-                   +[c for c in # flatten
-                    [counts[f][s] if s in counts[f] else '--',
-                     formattedPercentDelta(counts[f][s] if s in counts[f] else None,
-                                           refCnt[s] if s in refCnt else None)]]])
-         for s in allDatasets]
-
+# build table
+header = cell0.format('')\
+         +cell.format(refFn if fullnames else shorten(refFn, fnP, fnS))\
+         +''.join([cell.format(s) for sd in [(f if fullnames else shorten(f, fnP, fnS), 'delta')
+                                             for f in inputfiles[1:]]
+                   for s in sd])
+lines = []
+for s in allDatasets :
+    cds = [(c, formattedPercentDelta(c, cr))
+           for c,cr in [(counts[f][s] if s in counts[f] else None,
+                         refCnt[s]    if s in refCnt    else None)
+                        for f in inputfiles[1:]]]
+    cds = [c for cd in cds for c in cd] # flatten
+    lines.append(cell0.format(s if fullnames else shorten(s, dsP, dsS))
+                 + cell.format(refCnt[s] if s in refCnt else '--')
+                 + ''.join([cell.format(c) if c is not None else '--' for c in cds]))
 print header
 print hrule
 print '\n'.join(lines)
 print hrule
-# for stream in Borge.keys() :
-#     cntStrB = Borge[stream]
-#     cntStrU1 = n0127[stream]
-#     cntStrU2 = n0135[stream]
-#     print stream
-#     for p in sorted(cntStrB.keys()) :
-#         cntB = cntStrB[p]
-#         cntU1 = sum([c for k,c in cntStrU1.iteritems() if p in k])
-#         cntU2 = sum([c for k,c in cntStrU2.iteritems() if p in k])
-#         print ''.join([('%'+str(colW)+'s') % v for v in [p, str(cntB),
-#                                                          str(cntU1), ("{0:.4f}%".format(100.*(cntU1-cntB)/cntB) if cntU1!=cntB else '--'),
-#                                                          str(cntU2), ("{0:.4f}%".format(100.*(cntU2-cntB)/cntB) if cntU2!=cntB else '--'),
-#                                                          ]])
+
