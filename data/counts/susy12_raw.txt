@@ -590,7 +590,7 @@ mc12_8TeV.176627.Herwigpp_simplifiedModel_wA_noslep_WH_2Lep_54 : 10000.0
 mc12_8TeV.176628.Herwigpp_simplifiedModel_wA_noslep_WH_2Lep_55 : 9999.0
 mc12_8TeV.176629.Herwigpp_simplifiedModel_wA_noslep_WH_2Lep_56 : 10000.0
 mc12_8TeV.176630.Herwigpp_simplifiedModel_wA_noslep_WH_2Lep_57 : 10000.0
-mc12_8TeV.176631.Herwigpp_simplifiedModel_wA_noslep_WH_2Lep_58 : 0
+mc12_8TeV.176631.Herwigpp_simplifiedModel_wA_noslep_WH_2Lep_58 : 10000.0
 mc12_8TeV.176632.Herwigpp_simplifiedModel_wA_noslep_WH_2Lep_59 : 10000.0
 mc12_8TeV.176633.Herwigpp_simplifiedModel_wA_noslep_WH_2Lep_60 : 10000.0
 mc12_8TeV.176634.Herwigpp_simplifiedModel_wA_noslep_WH_2Lep_61 : 10000.0
@@ -639,7 +639,7 @@ mc12_8TeV.176677.Herwigpp_simplifiedModel_wA_noslep_WH_3Lep_37 : 15000.0
 mc12_8TeV.176678.Herwigpp_simplifiedModel_wA_noslep_WH_3Lep_38 : 15000.0
 mc12_8TeV.176679.Herwigpp_simplifiedModel_wA_noslep_WH_3Lep_39 : 15000.0
 mc12_8TeV.176680.Herwigpp_simplifiedModel_wA_noslep_WH_3Lep_40 : 15000.0
-mc12_8TeV.176681.Herwigpp_simplifiedModel_wA_noslep_WH_3Lep_41 : 0
+mc12_8TeV.176681.Herwigpp_simplifiedModel_wA_noslep_WH_3Lep_41 : 15000.0
 mc12_8TeV.176682.Herwigpp_simplifiedModel_wA_noslep_WH_3Lep_42 : 15000.0
 mc12_8TeV.176683.Herwigpp_simplifiedModel_wA_noslep_WH_3Lep_43 : 15000.0
 mc12_8TeV.176684.Herwigpp_simplifiedModel_wA_noslep_WH_3Lep_44 : 15000.0
