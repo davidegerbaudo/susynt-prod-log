@@ -13,7 +13,7 @@ mc12_8TeV.144917.Herwigpp_simplifiedModel_wC_slep_noWcascade_20 : 40000.0
 mc12_8TeV.144919.Herwigpp_simplifiedModel_wC_slep_noWcascade_22 : 40000.0
 mc12_8TeV.144920.Herwigpp_simplifiedModel_wC_slep_noWcascade_23 : 40000.0
 mc12_8TeV.144921.Herwigpp_simplifiedModel_wC_slep_noWcascade_24 : 40000.0
-mc12_8TeV.144922.Herwigpp_simplifiedModel_wC_slep_noWcascade_25 : 10000.0
+mc12_8TeV.144922.Herwigpp_simplifiedModel_wC_slep_noWcascade_25 : 40000.0
 mc12_8TeV.144923.Herwigpp_simplifiedModel_wC_slep_noWcascade_26 : 40000.0
 mc12_8TeV.144925.Herwigpp_simplifiedModel_wC_slep_noWcascade_28 : 39999.0
 mc12_8TeV.144926.Herwigpp_simplifiedModel_wC_slep_noWcascade_29 : 40000.0
@@ -152,7 +152,7 @@ mc12_8TeV.166613.Herwigpp_pMSSM_DLiSlep_MSL_190_M1_070 : 5000.0
 mc12_8TeV.166614.Herwigpp_pMSSM_DLiSlep_MSL_190_M1_080 : 5000.0
 mc12_8TeV.166615.Herwigpp_pMSSM_DLiSlep_MSL_195_M1_035 : 5000.0
 mc12_8TeV.166616.Herwigpp_pMSSM_DLiSlep_MSL_195_M1_045 : 5000.0
-mc12_8TeV.166617.Herwigpp_pMSSM_DLiSlep_MSL_195_M1_055 : 0.0
+mc12_8TeV.166617.Herwigpp_pMSSM_DLiSlep_MSL_195_M1_055 : 5000.0
 mc12_8TeV.166618.Herwigpp_pMSSM_DLiSlep_MSL_195_M1_065 : 5000.0
 mc12_8TeV.166619.Herwigpp_pMSSM_DLiSlep_MSL_195_M1_075 : 5000.0
 mc12_8TeV.166620.Herwigpp_pMSSM_DLiSlep_MSL_200_M1_000 : 5000.0
@@ -206,7 +206,7 @@ mc12_8TeV.175428.Herwigpp_pMSSM_DLiSlep_MSL_128_M1_100 : 5000.0
 mc12_8TeV.175429.Herwigpp_pMSSM_DLiSlep_MSL_131_M1_090 : 5000.0
 mc12_8TeV.175430.Herwigpp_pMSSM_DLiSlep_MSL_139_M1_110 : 5000.0
 mc12_8TeV.175431.Herwigpp_pMSSM_DLiSlep_MSL_142_M1_100 : 5000.0
-mc12_8TeV.175432.Herwigpp_pMSSM_DLiSlep_MSL_150_M1_120 : 0.0
+mc12_8TeV.175432.Herwigpp_pMSSM_DLiSlep_MSL_150_M1_120 : 5000.0
 mc12_8TeV.175433.Herwigpp_pMSSM_DLiSlep_MSL_154_M1_110 : 5000.0
 mc12_8TeV.175434.Herwigpp_pMSSM_DLiSlep_MSL_158_M1_100 : 5000.0
 mc12_8TeV.175435.Herwigpp_pMSSM_DLiSlep_MSL_161_M1_130 : 5000.0
@@ -521,17 +521,18 @@ mc12_8TeV.176481.Herwigpp_UEEE3_CTEQ6L1_simplifiedModel_wC_noslep_WW : 200000.0
 mc12_8TeV.176482.Herwigpp_UEEE3_CTEQ6L1_simplifiedModel_wC_noslep_WW : 200000.0
 mc12_8TeV.176558.Herwigpp_simplifiedModel_wC_slep_noWcasc_50 : 40000.0
 mc12_8TeV.176559.Herwigpp_simplifiedModel_wC_slep_noWcasc_51 : 40000.0
-mc12_8TeV.176560.Herwigpp_simplifiedModel_wC_slep_noWcasc_52 : 30000.0
+mc12_8TeV.176560.Herwigpp_simplifiedModel_wC_slep_noWcasc_52 : 40000.0
 mc12_8TeV.176561.Herwigpp_simplifiedModel_wC_slep_noWcasc_53 : 40000.0
 mc12_8TeV.176562.Herwigpp_simplifiedModel_wC_slep_noWcasc_54 : 40000.0
 mc12_8TeV.176563.Herwigpp_simplifiedModel_wC_slep_noWcasc_55 : 40000.0
 mc12_8TeV.176564.Herwigpp_simplifiedModel_wC_slep_noWcasc_56 : 40000.0
+mc12_8TeV.176565.Herwigpp_simplifiedModel_wC_slep_noWcasc_57 : 40000.0
 mc12_8TeV.176566.Herwigpp_simplifiedModel_wC_slep_noWcasc_58 : 40000.0
 mc12_8TeV.176567.Herwigpp_simplifiedModel_wC_slep_noWcasc_59 : 40000.0
-mc12_8TeV.176568.Herwigpp_simplifiedModel_wC_slep_noWcasc_60 : 10000.0
+mc12_8TeV.176568.Herwigpp_simplifiedModel_wC_slep_noWcasc_60 : 40000.0
 mc12_8TeV.176569.Herwigpp_simplifiedModel_wC_slep_noWcasc_61 : 40000.0
 mc12_8TeV.176570.Herwigpp_simplifiedModel_wC_slep_noWcasc_62 : 40000.0
-mc12_8TeV.176571.Herwigpp_simplifiedModel_wC_slep_noWcasc_63 : 30000.0
+mc12_8TeV.176571.Herwigpp_simplifiedModel_wC_slep_noWcasc_63 : 40000.0
 mc12_8TeV.176572.Herwigpp_simplifiedModel_wC_slep_noWcasc_64 : 40000.0
 mc12_8TeV.176573.Herwigpp_simplifiedModel_wC_slep_noWcasc_65 : 39999.0
 mc12_8TeV.176574.Herwigpp_simplifiedModel_wA_noslep_WH_2Lep_1 : 20000.0
@@ -680,7 +681,7 @@ mc12_8TeV.177434.Herwigpp_UEEE3_CTEQ6L1_pMSSM_DLiSlep_MSL_308_M1_180 : 5000.0
 mc12_8TeV.177435.Herwigpp_UEEE3_CTEQ6L1_pMSSM_DLiSlep_MSL_309_M1_015 : 5000.0
 mc12_8TeV.177436.Herwigpp_UEEE3_CTEQ6L1_pMSSM_DLiSlep_MSL_309_M1_135 : 5000.0
 mc12_8TeV.177437.Herwigpp_UEEE3_CTEQ6L1_pMSSM_DLiSlep_MSL_311_M1_090 : 5000.0
-mc12_8TeV.177438.Herwigpp_UEEE3_CTEQ6L1_pMSSM_DLiSlep_MSL_311_M1_210 : 0.0
+mc12_8TeV.177438.Herwigpp_UEEE3_CTEQ6L1_pMSSM_DLiSlep_MSL_311_M1_210 : 5000.0
 mc12_8TeV.177439.Herwigpp_UEEE3_CTEQ6L1_pMSSM_DLiSlep_MSL_313_M1_045 : 5000.0
 mc12_8TeV.177440.Herwigpp_UEEE3_CTEQ6L1_pMSSM_DLiSlep_MSL_313_M1_165 : 5000.0
 mc12_8TeV.177441.Herwigpp_UEEE3_CTEQ6L1_pMSSM_DLiSlep_MSL_315_M1_000 : 5000.0
