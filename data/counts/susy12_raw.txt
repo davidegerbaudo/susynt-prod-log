@@ -504,10 +504,10 @@ mc12_8TeV.176464.Herwigpp_UEEE3_CTEQ6L1_simplifiedModel_wC_noslep_WW : 10000.0
 mc12_8TeV.176465.Herwigpp_UEEE3_CTEQ6L1_simplifiedModel_wC_noslep_WW : 9500.0
 mc12_8TeV.176466.Herwigpp_UEEE3_CTEQ6L1_simplifiedModel_wC_noslep_WW : 10000.0
 mc12_8TeV.176467.Herwigpp_UEEE3_CTEQ6L1_simplifiedModel_wC_noslep_WW : 10000.0
-mc12_8TeV.176468.Herwigpp_UEEE3_CTEQ6L1_simplifiedModel_wC_noslep_WW : 0.0
+mc12_8TeV.176468.Herwigpp_UEEE3_CTEQ6L1_simplifiedModel_wC_noslep_WW : 10000.0
 mc12_8TeV.176469.Herwigpp_UEEE3_CTEQ6L1_simplifiedModel_wC_noslep_WW : 10000.0
 mc12_8TeV.176470.Herwigpp_UEEE3_CTEQ6L1_simplifiedModel_wC_noslep_WW : 5000.0
-mc12_8TeV.176471.Herwigpp_UEEE3_CTEQ6L1_simplifiedModel_wC_noslep_WW : 0.0
+mc12_8TeV.176471.Herwigpp_UEEE3_CTEQ6L1_simplifiedModel_wC_noslep_WW : 5000.0
 mc12_8TeV.176472.Herwigpp_UEEE3_CTEQ6L1_simplifiedModel_wC_noslep_WW : 5000.0
 mc12_8TeV.176473.Herwigpp_UEEE3_CTEQ6L1_simplifiedModel_wC_noslep_WW : 5000.0
 mc12_8TeV.176474.Herwigpp_UEEE3_CTEQ6L1_simplifiedModel_wC_noslep_WW : 5000.0
