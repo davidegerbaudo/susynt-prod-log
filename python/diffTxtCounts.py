@@ -39,23 +39,20 @@ def parseLine(line) :
     tokens = line.replace(' : ',' ').strip().split()
     return tokens[0].strip(), float(tokens[1])
 def countsFromFile(filename) :
-    return dict([(s,c) for s,c in [parseLine(l)
-                                   for l in open(filename).readlines() if isValidLine(l)]])
-counts = dict([(f, countsFromFile(f)) for f in inputfiles])
-
+    return dict([(s,c) for s,c in [parseLine(l) for l in open(filename).readlines() if isValidLine(l)]])
 def commonPrefix(list) : return os.path.commonprefix(list)
 def commonSuffix(list) : return os.path.commonprefix([l[::-1] for l in list])[::-1]
+def shorten(name, pref, suff) : return name.lstrip(pref).rstrip(suff).rstrip()
+
+counts      = dict([(f, countsFromFile(f)) for f in inputfiles])
 allDatasets = [d for cnts in counts.values() for d in cnts.keys()]
 fnamePrefix, fnameSuffix = commonPrefix(inputfiles), commonSuffix(inputfiles)
-dsetPrefix, dsetSuffix = commonPrefix(allDatasets), commonSuffix(allDatasets)
-
-def shorten(name, pref, suff) : return name.lstrip(pref).rstrip(suff).rstrip()
+dsetPrefix,  dsetSuffix  = commonPrefix(allDatasets), commonSuffix(allDatasets)
 
 refFname = inputfiles[0]
 refCounts = dict([(s, counts[refFname][s] if s in counts[refFname] else None) for s in allDatasets])
 colW = 14
 
-print counts
 header = ''.join([('%'+str(colW)+'s')%v for v in
                   [''] 
                   + [f if fullnames else shorten(f, fnamePrefix, fnameSuffix) for f in [refFname]]
