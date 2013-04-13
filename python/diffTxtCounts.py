@@ -46,7 +46,7 @@ def commonPrefix(list) : return os.path.commonprefix(list)
 def commonSuffix(list) : return os.path.commonprefix([l[::-1] for l in list])[::-1]
 def shorten(name, pref, suff) : return name.lstrip(pref).rstrip(suff).rstrip()
 def formattedPercentDelta(v, vr) :
-    return "{0:.1f}%".format(100.*(v-vr)/vr) if v is not None and vr and v!=vr else '--'
+    return "{0:.1f}".format(100.*(v-vr)/vr) if v is not None and vr and v!=vr else '--'
 
 counts      = dict([(f, countsFromFile(f)) for f in inputfiles])
 allDatasets = sorted(list(set([d for cnts in counts.values() for d in cnts.keys()])))
@@ -63,7 +63,7 @@ cell0, cell = '{0:<'+str(col0W)+'}', '{0:>'+str(colW)+'}'
 # build table
 header = cell0.format('')\
          +cell.format(refFn if fullnames else shorten(refFn, fnP, fnS))\
-         +''.join([cell.format(s) for sd in [(f if fullnames else shorten(f, fnP, fnS), 'delta')
+         +''.join([cell.format(s) for sd in [(f if fullnames else shorten(f, fnP, fnS), 'delta[%]')
                                              for f in inputfiles[1:]]
                    for s in sd])
 lines = []
