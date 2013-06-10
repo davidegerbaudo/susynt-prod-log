@@ -12,8 +12,8 @@
 # - voms proxy
 #
 # Main steps:
-# - source this script with a tag, for example
-#   > source setup_area.sh n0135
+# - set the tag below, source this script:
+#   > source setup_area.sh
 # - this will create two directories :
 #   - 'prod_n0135' (with all the packages)
 #   - 'subm_n0135' (to submit the jobs)
@@ -22,7 +22,7 @@
 #
 # davide.gerbaudo@gmail.com, Mar 2013
 
-TAG="n0142"
+TAG="n0143"
 
 PROD_DIR="prod_${TAG}"
 SUBM_DIR="subm_${TAG}"
@@ -33,9 +33,9 @@ mkdir ${PROD_DIR}
 cd    ${PROD_DIR}
 
 svn co svn+ssh://svn.cern.ch/reps/atlasoff/PhysicsAnalysis/SUSYPhys/SUSYTools/tags/SUSYTools-00-03-00               SUSYTools
-svn co svn+ssh://svn.cern.ch/reps/atlasphys/Physics/SUSY/Analyses/WeakProduction/MultiLep/tags/MultiLep-01-05-01    MultiLep
-svn co svn+ssh://svn.cern.ch/reps/atlasinst/Institutes/UCIrvine/SUSYAnalysis/SusyNtuple/tags/SusyNtuple-00-00-56    SusyNtuple
-svn co svn+ssh://svn.cern.ch/reps/atlasinst/Institutes/UCIrvine/SUSYAnalysis/SusyCommon/tags/SusyCommon-00-00-72    SusyCommon
+svn co svn+ssh://svn.cern.ch/reps/atlasphys/Physics/SUSY/Analyses/WeakProduction/MultiLep/tags/MultiLep-01-05-02    MultiLep
+svn co svn+ssh://svn.cern.ch/reps/atlasinst/Institutes/UCIrvine/SUSYAnalysis/SusyNtuple/tags/SusyNtuple-00-00-58    SusyNtuple
+svn co svn+ssh://svn.cern.ch/reps/atlasinst/Institutes/UCIrvine/SUSYAnalysis/SusyCommon/tags/SusyCommon-00-00-73    SusyCommon
 
 source MultiLep/installscripts/install_script.sh
 
