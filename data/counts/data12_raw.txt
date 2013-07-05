@@ -5,7 +5,7 @@ group.phys-susy.data12_8TeV.periodB.physics_Egamma.PhysCont : 128060514.0
 group.phys-susy.data12_8TeV.periodB.physics_Egamma.PhysCont : 130536070.0
 group.phys-susy.data12_8TeV.periodB.physics_Muons.PhysCont : 97973135.0
 group.phys-susy.data12_8TeV.periodC.physics_Egamma.PhysCont : 35596072.0
-group.phys-susy.data12_8TeV.periodC.physics_Muons.PhysCont : 25189590.0
+group.phys-susy.data12_8TeV.periodC.physics_Muons.PhysCont : 27446904.0
 group.phys-susy.data12_8TeV.periodD.physics_Egamma.PhysCont : 82713192.0
 group.phys-susy.data12_8TeV.periodD.physics_Muons.PhysCont : 64091340.0
 group.phys-susy.data12_8TeV.periodE.physics_Egamma.PhysCont : 64696253.0
