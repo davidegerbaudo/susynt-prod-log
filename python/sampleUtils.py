@@ -21,6 +21,15 @@ def parseSusyntSampleName(samplename='', verbose=False) :
         return
     return dict([(k, match.group(k)) for k in ['user','sample','tag']])
 
+def dsidFromSampleName(samplename='', verbose=False) :
+    "extract the dsid from a sample name"
+    rep = re.compile('mc12_8TeV\.(?P<dsid>\d+?)\.') # debuggex.com/r/UnMWCf-3lTSOhn0h/0
+    match = rep.search(samplename)
+    if not match :
+        if verbose : print "cannot parse '%s'"%samplename
+        return
+    return dict([(k, match.group(k)) for k in ['dsid']])
+
 def nttag(alltags) :
     return alltags[alltags.rfind('_n')+1:]
 
