@@ -10,3 +10,11 @@ group.phys-susy.data12_8TeV.periodE.physics_Egamma.PhysCont : 0
 group.phys-susy.data12_8TeV.periodE.physics_Muons.PhysCont : 0
 group.phys-susy.data12_8TeV.periodG.physics_Egamma.PhysCont : 0
 group.phys-susy.data12_8TeV.periodG.physics_Muons.PhysCont : 0
+group.phys-susy.data12_8TeV.periodH.physics_Egamma.PhysCont : 0
+group.phys-susy.data12_8TeV.periodH.physics_Muons.PhysCont : 0
+group.phys-susy.data12_8TeV.periodI.physics_Egamma.PhysCont : 0
+group.phys-susy.data12_8TeV.periodI.physics_Muons.PhysCont : 0
+group.phys-susy.data12_8TeV.periodJ.physics_Egamma.PhysCont : 0
+group.phys-susy.data12_8TeV.periodJ.physics_Muons.PhysCont : 0
+group.phys-susy.data12_8TeV.periodL.physics_Egamma.PhysCont : 0
+group.phys-susy.data12_8TeV.periodL.physics_Muons.PhysCont : 0
