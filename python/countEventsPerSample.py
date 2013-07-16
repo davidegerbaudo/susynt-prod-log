@@ -38,7 +38,7 @@ parser.add_option("-v", "--verbose", dest="verbose", default=False, action="stor
 inputdirs       = args
 gen             = options.gen
 histoName       = genHistoName if gen else rawHistoName
-binLabel        = options.binlabel
+binLabel        = options.binlabel.replace('"','').replace("'","") # labels can have whitespaces
 printBinLabels  = options.printbinlabels
 regex           = options.regex
 fullnames       = options.fullnames
