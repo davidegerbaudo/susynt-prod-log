@@ -1,4 +1,4 @@
-* Braindump
+# Braindump
 
 For the slepton we read the information from the root file provided by
 Cristophe.  Of course this is not written in stone (i.e. we can dump

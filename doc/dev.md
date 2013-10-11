@@ -1,10 +1,10 @@
-* Note to self
+# Note to self
 
-** Modifying SusyNt classes
+## Modifying SusyNt classes
 
 When you modify a class adding datamembers, remember to bump the
 `ClassDef` version counter.
 
-* Overview of the packages
+# Overview of the packages
 
 Todo. Have it on paper, need to type it.
