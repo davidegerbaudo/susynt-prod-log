@@ -37,6 +37,7 @@ svn co svn+ssh://svn.cern.ch/reps/atlasphys/Physics/SUSY/Analyses/WeakProduction
 svn co svn+ssh://svn.cern.ch/reps/atlasinst/Institutes/UCIrvine/SUSYAnalysis/SusyNtuple/tags/SusyNtuple-00-01-06    SusyNtuple
 svn co svn+ssh://svn.cern.ch/reps/atlasinst/Institutes/UCIrvine/SUSYAnalysis/SusyCommon/tags/SusyCommon-00-01-03-02 SusyCommon
 
+sed -i '/asetup/s/setup/slc5\,setup/1' MultiLep/installscripts/setup_area.sh # needed for slc6 nodes
 source MultiLep/installscripts/install_script.sh
 
 echo "Done compiling                    -- `date`"
