@@ -22,7 +22,7 @@
 #
 # davide.gerbaudo@gmail.com, Mar 2013
 
-TAG="n0148"
+TAG="n0149"
 
 PROD_DIR="prod_${TAG}"
 SUBM_DIR="subm_${TAG}"
@@ -32,8 +32,8 @@ echo "Starting                          -- `date`"
 mkdir ${PROD_DIR}
 cd    ${PROD_DIR}
 
-svn co svn+ssh://svn.cern.ch/reps/atlasoff/PhysicsAnalysis/SUSYPhys/SUSYTools/tags/SUSYTools-00-03-05               SUSYTools
-svn co svn+ssh://svn.cern.ch/reps/atlasphys/Physics/SUSY/Analyses/WeakProduction/MultiLep/tags/MultiLep-01-06-02    MultiLep
+svn co svn+ssh://svn.cern.ch/reps/atlasoff/PhysicsAnalysis/SUSYPhys/SUSYTools/tags/SUSYTools-00-03-14               SUSYTools
+svn co svn+ssh://svn.cern.ch/reps/atlasphys/Physics/SUSY/Analyses/WeakProduction/MultiLep/tags/MultiLep-01-06-04    MultiLep
 svn co svn+ssh://svn.cern.ch/reps/atlasinst/Institutes/UCIrvine/SUSYAnalysis/SusyNtuple/tags/SusyNtuple-00-01-06    SusyNtuple
 svn co svn+ssh://svn.cern.ch/reps/atlasinst/Institutes/UCIrvine/SUSYAnalysis/SusyCommon/tags/SusyCommon-00-01-03-02 SusyCommon
 
