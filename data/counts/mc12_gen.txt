@@ -6,6 +6,7 @@ mc12_8TeV.105985.Herwig_AUET2CTEQ6L1_WW : 2499890.0
 mc12_8TeV.105986.Herwig_AUET2CTEQ6L1_ZZ : 245000.0
 mc12_8TeV.105987.Herwig_AUET2CTEQ6L1_WZ : 999998.0
 mc12_8TeV.107280.AlpgenJimmy_AUET2CTEQ6L1_WbbNp0 : 474999.0
+mc12_8TeV.107281.AlpgenJimmy_AUET2CTEQ6L1_WbbNp1 : 0
 mc12_8TeV.107282.AlpgenJimmy_AUET2CTEQ6L1_WbbNp2 : 174999.0
 mc12_8TeV.107283.AlpgenJimmy_AUET2CTEQ6L1_WbbNp3 : 50000.0
 mc12_8TeV.107650.AlpgenJimmy_AUET2CTEQ6L1_ZeeNp0 : 6608782.0
@@ -206,10 +207,13 @@ mc12_8TeV.126941.PowhegPythia8_AU2CT10_ZZ_2mu2tau_mll4_2pt5 : 1098999.0
 mc12_8TeV.126941.PowhegPythia8_AU2CT10_ZZ_2mu2tau_mll4_2pt5 : 1089799.0
 mc12_8TeV.126942.PowhegPythia8_AU2CT10_ZZ_4tau_mll4_2pt5 : 300000.0
 mc12_8TeV.126942.PowhegPythia8_AU2CT10_ZZ_4tau_mll4_2pt5 : 299999.0
+mc12_8TeV.126949.PowhegPythia8_AU2CT10_ZZllnunu_ee_mll4 : 29500.0
 mc12_8TeV.126950.PowhegPythia8_AU2CT10_ZZllnunu_mm_mll4 : 300000.0
 mc12_8TeV.126951.PowhegPythia8_AU2CT10_ZZllnunu_tt_mll4 : 299999.0
 mc12_8TeV.126951.PowhegPythia8_AU2CT10_ZZllnunu_tt_mll4 : 299999.0
 mc12_8TeV.126988.Sherpa_CT10_llnunu_SS_EW6 : 49900.0
+mc12_8TeV.126989.Sherpa_CT10_llnunujj_SS : 0
+mc12_8TeV.129136.Pythia8B_AU2_CTEQ6L1_bbTomu20 : 0
 mc12_8TeV.129477.PowhegPythia8_WZ_Wm11Z11_mll0p250d0_2L5 : 190000.0
 mc12_8TeV.129478.PowhegPythia8_WZ_Wm11Z13_mll0p4614d0_2L5 : 190000.0
 mc12_8TeV.129479.PowhegPythia8_WZ_Wm11Z15_mll3p804d0_2L5 : 76000.0
@@ -263,6 +267,8 @@ mc12_8TeV.146845.AlpgenJimmy_Auto_ZmumuNp5Incl_Mll10to60 : 79740.0
 mc12_8TeV.146850.AlpgenJimmy_Auto_ZtautauNp0Excl_Mll10to60 : 999898.0
 mc12_8TeV.146851.AlpgenJimmy_Auto_ZtautauNp1Excl_Mll10to60 : 299999.0
 mc12_8TeV.146852.AlpgenJimmy_Auto_ZtautauNp2Excl_Mll10to60 : 469999.0
+mc12_8TeV.146853.AlpgenJimmy_Auto_ZtautauNp3Excl_Mll10to60 : 0
+mc12_8TeV.146854.AlpgenJimmy_Auto_ZtautauNp4Excl_Mll10to60 : 0
 mc12_8TeV.146855.AlpgenJimmy_Auto_ZtautauNp5Incl_Mll10to60 : 120139.0
 mc12_8TeV.147025.AlpgenPythia_Auto_P2011C_WenuNp0 : 16999366.0
 mc12_8TeV.147026.AlpgenPythia_Auto_P2011C_WenuNp1 : 33276135.0
