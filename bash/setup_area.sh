@@ -37,7 +37,11 @@ svn co svn+ssh://svn.cern.ch/reps/atlasphys/Physics/SUSY/Analyses/WeakProduction
 git clone git@github.com:gerbaudo/SusyNtuple.git; cd SusyNtuple; git checkout SusyNtuple-00-01-09    ; cd -
 git clone git@github.com:gerbaudo/SusyCommon.git; cd SusyCommon; git checkout SusyCommon-00-01-04-02 ; cd -
 
-sed -i '/asetup/s/setup/slc5\,setup/1' MultiLep/installscripts/setup_area.sh # needed for slc6 nodes
+sed -i -e '/asetup/s/^/#/' MultiLep/installscripts/install_script.sh # forget about asetup, we just need root
+localSetupROOT --rootVersion 5.34.18-x86_64-slc6-gcc4.7
+# the option below is the one needed for submit.py (see output of localSetupROOT)
+# --rootVer=5.34/18 --cmtConfig=x86_64-slc6-gcc47-opt
+
 source MultiLep/installscripts/install_script.sh
 
 echo "Done compiling                    -- `date`"
