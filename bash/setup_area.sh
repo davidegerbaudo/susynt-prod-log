@@ -48,6 +48,8 @@ echo "Done compiling                    -- `date`"
 
 cd ..
 git clone git@github.com:gerbaudo/SusyCommon.git ${SUBM_DIR}
+mv     ${SUBM_DIR}/SusyCommon/grid/* ${SUBM_DIR}/
+rm -rf ${SUBM_DIR}/SusyCommon
 cd    ${SUBM_DIR}
 
 localSetupPandaClient
