@@ -27,12 +27,6 @@ TAG="n0150"
 PROD_DIR="prod_${TAG}"
 SUBM_DIR="subm_${TAG}"
 
-if [ "$ROOTSYS" = "" ]
-then
-    echo "ROOTSYS not defined, please setup root"
-    return
-fi
-
 echo "Starting                          -- `date`"
 
 mkdir ${PROD_DIR}
@@ -44,6 +38,14 @@ svn co svn+ssh://svn.cern.ch/reps/atlasinst/Institutes/UCIrvine/SUSYAnalysis/Sus
 svn co svn+ssh://svn.cern.ch/reps/atlasinst/Institutes/UCIrvine/SUSYAnalysis/SusyCommon/tags/SusyCommon-00-01-04    SusyCommon
 
 sed -i '/asetup/s/setup/slc5\,setup/1' MultiLep/installscripts/setup_area.sh # needed for slc6 nodes
+
+if [ "$ROOTSYS" = "" ]
+then
+    echo "ROOTSYS not defined, please setup root"
+    return
+fi
+
+>>>>>>> 76f1f11... bugfix, move root check after localSetupROOT
 source MultiLep/installscripts/install_script.sh
 
 echo "Done compiling                    -- `date`"
