@@ -27,6 +27,12 @@ TAG="n0150"
 PROD_DIR="prod_${TAG}"
 SUBM_DIR="subm_${TAG}"
 
+if [ "$ROOTSYS" = "" ]
+then
+    echo "ROOTSYS not defined, please setup root"
+    return
+fi
+
 echo "Starting                          -- `date`"
 
 mkdir ${PROD_DIR}
