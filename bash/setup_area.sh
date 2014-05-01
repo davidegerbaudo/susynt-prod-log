@@ -27,12 +27,6 @@ TAG="n0150"
 PROD_DIR="prod_${TAG}"
 SUBM_DIR="subm_${TAG}"
 
-if [ "$ROOTSYS" = "" ]
-then
-    echo "ROOTSYS not defined, please setup root"
-    return
-fi
-
 echo "Starting                          -- `date`"
 
 mkdir ${PROD_DIR}
@@ -49,6 +43,12 @@ sed -i -e '/asetup/s/^/#/' MultiLep/installscripts/install_script.sh # forget ab
 localSetupROOT --rootVersion 5.34.18-x86_64-slc6-gcc4.7
 # the option below is the one needed for submit.py (see output of localSetupROOT)
 # --rootVer=5.34/18 --cmtConfig=x86_64-slc6-gcc47-opt
+
+if [ "$ROOTSYS" = "" ]
+then
+    echo "ROOTSYS not defined, please setup root"
+    return
+fi
 
 source MultiLep/installscripts/install_script.sh
 
