@@ -1506,6 +1506,16 @@ mc12_8TeV.177525.Herwigpp_sM_wA_noslep_notauhad_WH_2Lep_25 : 50000.0
 mc12_8TeV.177526.Herwigpp_sM_wA_noslep_notauhad_WH_2Lep_26 : 50000.0
 mc12_8TeV.177527.Herwigpp_sM_wA_noslep_notauhad_WH_2Lep_27 : 50000.0
 mc12_8TeV.177528.Herwigpp_sM_wA_noslep_notauhad_WH_2Lep_28 : 95000.0
+mc12_8TeV.178792.Herwigpp_simplifiedModel_wA_noslep_lepW_2L_73 : 20000.0
+mc12_8TeV.178793.Herwigpp_simplifiedModel_wA_noslep_lepW_2L_74 : 20000.0
+mc12_8TeV.178794.Herwigpp_simplifiedModel_wA_noslep_lepW_2L_75 : 19999.0
+mc12_8TeV.178795.Herwigpp_simplifiedModel_wA_noslep_lepW_2L_76 : 20000.0
+mc12_8TeV.178796.Herwigpp_simplifiedModel_wA_noslep_lepW_2L_77 : 20000.0
+mc12_8TeV.178797.Herwigpp_simplifiedModel_wA_noslep_lepW_2L_78 : 20000.0
+mc12_8TeV.178798.Herwigpp_simplifiedModel_wA_noslep_lepW_2L_79 : 19900.0
+mc12_8TeV.178799.Herwigpp_simplifiedModel_wA_noslep_lepW_2L_80 : 20000.0
+mc12_8TeV.178800.Herwigpp_simplifiedModel_wA_noslep_lepW_2L_81 : 20000.0
+mc12_8TeV.178801.Herwigpp_simplifiedModel_wA_noslep_lepW_2L_82 : 20000.0
 mc12_8TeV.183236.Herwigpp_DGstauR50_TB50_M1M2MU_75_100_100_2L : 100000.0
 mc12_8TeV.183237.Herwigpp_DGstauR50_TB50_M1M2MU_75_100_150_2L : 100000.0
 mc12_8TeV.183238.Herwigpp_DGstauR50_TB50_M1M2MU_75_100_200_2L : 100000.0
@@ -1706,3 +1716,7 @@ mc12_8TeV.186096.Herwigpp_UEEE3_CTEQ6L1_DGnoSL_TB10_050_500_3E3_2L : 20000.0
 mc12_8TeV.186097.Herwigpp_UEEE3_CTEQ6L1_DGnoSL_TB10_050_500_400_2L : 20000.0
 mc12_8TeV.186098.Herwigpp_UEEE3_CTEQ6L1_DGnoSL_TB10_050_500_450_2L : 20000.0
 mc12_8TeV.186099.Herwigpp_UEEE3_CTEQ6L1_DGnoSL_TB10_050_500_500_2L : 20000.0
+mc12_8TeV.204000.Herwigpp_UEEE3_CTEQ6L1_simplifiedModel_wC_slep_noWcasc_66 : 40000.0
+mc12_8TeV.204001.Herwigpp_UEEE3_CTEQ6L1_simplifiedModel_wC_slep_noWcasc_67 : 40000.0
+mc12_8TeV.204026.Herwigpp_UEEE3_CTEQ6L1_simplifiedModel_wA_slep_noWcasc_81 : 40000.0
+mc12_8TeV.204027.Herwigpp_UEEE3_CTEQ6L1_simplifiedModel_wA_slep_noWcasc_82 : 40000.0
