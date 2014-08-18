@@ -13,28 +13,27 @@ function checkTag {
         echo "pass the current tag as argument, e.g. 'n0048'"
         exit 1
     fi
-    TAG=$1
+    local tag=$1
 }
 
 function mvIfHasMoreLines {
-    NEWFILE=$1
-    OLDFILE=$2
-    NUMNEWLINES=$(echo $(wc -l < ${NEWFILE}))
-    NUMOLDLINES=$(echo $(wc -l < ${OLDFILE}))
-    EXTRALINES=$(( ${NUMNEWLINES} - ${NUMOLDLINES} ))
-    echo "old : ${OLDFILE} ${NUMOLDLINES}, ${NEWFILE} ${NUMNEWLINES}"
-    if [[ ${EXTRALINES} -gt 0 ]]
+    local newfile=$1
+    local oldfile=$2
+    local numnewlines=$(echo $(wc -l < ${newfile}))
+    local numoldlines=$(echo $(wc -l < ${oldfile}))
+    local extralines=$(( ${numnewlines} - ${numoldlines} ))
+    if [[ ${extralines} -gt 0 ]]
 	then
-	    mv ${OLDFILE} ${OLDFILE}.old
-	    mv ${NEWFILE} ${OLDFILE}
+	    mv ${oldfile} ${oldfile}.old
+	    mv ${newfile} ${oldfile}
     else
 	echo "No new lines"
     fi
 }
 
 function createDummyFileIfMissing {
-    FILES=$*
-    for X in ${FILES}
+    local files=$*
+    for X in ${files}
     do
       if [ ! -f ${X} ]
 	  then
@@ -45,8 +44,8 @@ function createDummyFileIfMissing {
 }
 
 function exitOnMissingFile {
-    FILES=$*
-    for X in ${FILES}
+    local files=$*
+    for X in ${files}
     do
       if [ ! -f ${X} ]
 	  then
@@ -57,35 +56,36 @@ function exitOnMissingFile {
 }
 
 function updateList {
-    TAG=$1
-    MODE=$2
-    NEWFILE="/tmp/dq2-ls-tmp.txt"
-    SIGNAL_PATTERN="simplifiedModel|DGnoSL|DGemtR|DGstauR|RPV|pMSSM|_DGN|MSUGRA|GGM|sM_wA|Herwigpp_UEEE3_CTEQ6L1_C1C1|Herwigpp_UEEE3_CTEQ6L1_C1N2"
-    NICKNAME=$USER
-    case "${MODE}" in
+    local tag=$1
+    local mode=$2
+    local oldfile=""
+    local newfile="/tmp/dq2-ls-tmp.txt"
+    local signal_pattern="simplifiedModel|DGnoSL|DGemtR|DGstauR|RPV|pMSSM|_DGN|MSUGRA|GGM|sM_wA|Herwigpp_UEEE3_CTEQ6L1_C1C1|Herwigpp_UEEE3_CTEQ6L1_C1N2"
+    local nickname=$USER
+    case "${mode}" in
 	data)
-	    OLDFILE="data12_${TAG}/data12.txt"
-	    createDummyFileIfMissing ${OLDFILE}
-	    dq2-ls "user.${NICKNAME}.group.phys-susy.data12*physics*.SusyNt.*${TAG}/" | sort > ${NEWFILE}
-	    exitOnMissingFile ${NEWFILE}
-	    mvIfHasMoreLines ${NEWFILE} ${OLDFILE}
+	    oldfile="data12_${tag}/data12.txt"
+	    createDummyFileIfMissing ${oldfile}
+	    dq2-ls "user.${nickname}.group.phys-susy.data12*physics*.SusyNt.*${tag}/" | sort > ${newfile}
+	    exitOnMissingFile ${newfile}
+	    mvIfHasMoreLines ${newfile} ${oldfile}
 	    ;;
 	mc)
-	    OLDFILE="mc12_${TAG}/mc12.txt"
-	    createDummyFileIfMissing ${OLDFILE}
-	    dq2-ls "user.${NICKNAME}.mc12_8TeV.*.SusyNt.*${TAG}/" | egrep -v "${SIGNAL_PATTERN}" | sort > ${NEWFILE}
-	    exitOnMissingFile ${NEWFILE}
-	    mvIfHasMoreLines ${NEWFILE} ${OLDFILE}
+	    oldfile="mc12_${tag}/mc12.txt"
+	    createDummyFileIfMissing ${oldfile}
+	    dq2-ls "user.${nickname}.mc12_8TeV.*.SusyNt.*${tag}/" | egrep -v "${signal_pattern}" | sort > ${newfile}
+	    exitOnMissingFile ${newfile}
+	    mvIfHasMoreLines ${newfile} ${oldfile}
 	    ;;
 	susy)
-	    OLDFILE="susy_${TAG}/susy.txt"
-	    createDummyFileIfMissing ${OLDFILE}
-        dq2-ls "user.${NICKNAME}.mc12_8TeV.*.SusyNt.*${TAG}/" | egrep "${SIGNAL_PATTERN}" | sort > ${NEWFILE}
-	    exitOnMissingFile ${NEWFILE}
-	    mvIfHasMoreLines ${NEWFILE} ${OLDFILE}
+	    oldfile="susy_${tag}/susy.txt"
+	    createDummyFileIfMissing ${oldfile}
+        dq2-ls "user.${nickname}.mc12_8TeV.*.SusyNt.*${tag}/" | egrep "${signal_pattern}" | sort > ${newfile}
+	    exitOnMissingFile ${newfile}
+	    mvIfHasMoreLines ${newfile} ${oldfile}
 	    ;;
 	*)
-	    echo "Invalid mode ${MODE}. Usage updateLists.sh TAG MODE, where MODE in (data, mc, susy)."
+	    echo "Invalid mode ${mode}. Usage updateLists.sh TAG MODE, where MODE in (data, mc, susy)."
 	    ;;
     esac
 }
