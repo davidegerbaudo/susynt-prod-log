@@ -8,7 +8,8 @@
 # Feb 2013
 
 function checkTag {
-    if [ $# -lt 1 ]; then
+    if [ $# -lt 1 ]
+    then
         echo "pass the current tag as argument, e.g. 'n0048'"
         exit 1
     fi
@@ -21,13 +22,26 @@ function mvIfHasMoreLines {
     NUMNEWLINES=$(echo $(wc -l < ${NEWFILE}))
     NUMOLDLINES=$(echo $(wc -l < ${OLDFILE}))
     EXTRALINES=$(( ${NUMNEWLINES} - ${NUMOLDLINES} ))
+    echo "old : ${OLDFILE} ${NUMOLDLINES}, ${NEWFILE} ${NUMNEWLINES}"
     if [[ ${EXTRALINES} -gt 0 ]]
 	then
-	mv ${OLDFILE} ${OLDFILE}.old
-	mv ${NEWFILE} ${OLDFILE}
+	    mv ${OLDFILE} ${OLDFILE}.old
+	    mv ${NEWFILE} ${OLDFILE}
     else
 	echo "No new lines"
     fi
+}
+
+function createDummyFileIfMissing {
+    FILES=$*
+    for X in ${FILES}
+    do
+      if [ ! -f ${X} ]
+	  then
+	      echo "Missing file ${X}; creating empty placeholder"
+          touch ${X}
+      fi
+    done
 }
 
 function exitOnMissingFile {
@@ -36,7 +50,7 @@ function exitOnMissingFile {
     do
       if [ ! -f ${X} ]
 	  then
-	  echo "Missing file ${X}"
+	      echo "Missing file ${X}"
 	  exit 1
       fi
     done
@@ -51,23 +65,22 @@ function updateList {
     case "${MODE}" in
 	data)
 	    OLDFILE="data12_${TAG}/data12.txt"
-	    exitOnMissingFile ${OLDFILE}
+	    createDummyFileIfMissing ${OLDFILE}
 	    dq2-ls "user.${NICKNAME}.group.phys-susy.data12*physics*.SusyNt.*${TAG}/" | sort > ${NEWFILE}
 	    exitOnMissingFile ${NEWFILE}
 	    mvIfHasMoreLines ${NEWFILE} ${OLDFILE}
 	    ;;
 	mc)
 	    OLDFILE="mc12_${TAG}/mc12.txt"
-	    exitOnMissingFile ${OLDFILE}
+	    createDummyFileIfMissing ${OLDFILE}
 	    dq2-ls "user.${NICKNAME}.mc12_8TeV.*.SusyNt.*${TAG}/" | egrep -v "${SIGNAL_PATTERN}" | sort > ${NEWFILE}
 	    exitOnMissingFile ${NEWFILE}
 	    mvIfHasMoreLines ${NEWFILE} ${OLDFILE}
 	    ;;
 	susy)
 	    OLDFILE="susy_${TAG}/susy.txt"
-	    exitOnMissingFile ${OLDFILE}
+	    createDummyFileIfMissing ${OLDFILE}
         dq2-ls "user.${NICKNAME}.mc12_8TeV.*.SusyNt.*${TAG}/" | egrep "${SIGNAL_PATTERN}" | sort > ${NEWFILE}
-
 	    exitOnMissingFile ${NEWFILE}
 	    mvIfHasMoreLines ${NEWFILE} ${OLDFILE}
 	    ;;
