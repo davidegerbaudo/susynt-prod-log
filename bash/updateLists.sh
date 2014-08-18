@@ -55,10 +55,16 @@ function exitOnMissingFile {
     done
 }
 
+function chmodDestDir {
+    local dest_dir=${1}
+    chmod -f -R a+rw dest_dir
+}
+
 function updateList {
     local tag=$1
     local mode=$2
     local oldfile=""
+    local dest_dir=""
     local newfile="/tmp/dq2-ls-tmp.txt"
     local signal_pattern="simplifiedModel|DGnoSL|DGemtR|DGstauR|RPV|pMSSM|_DGN|MSUGRA|GGM|sM_wA|Herwigpp_UEEE3_CTEQ6L1_C1C1|Herwigpp_UEEE3_CTEQ6L1_C1N2"
     local nickname=$USER
@@ -67,25 +73,34 @@ function updateList {
 
     case "${mode}" in
 	data)
-	    oldfile="data12_${tag}/data12.txt"
+	    dest_dir="data12_${tag}"
+	    oldfile="${dest_dir}/data12.txt"
+	    mkdir -p ${dest_dir}
 	    createDummyFileIfMissing ${oldfile}
 	    dq2-ls "user.${nickname}.group.phys-susy.data12*physics*.SusyNt.*${tag}*/" | sort | egrep "${suffix}" > ${newfile}
 	    exitOnMissingFile ${newfile}
 	    mvIfHasMoreLines ${newfile} ${oldfile}
+	    chmodDestDir ${dest_dir}
 	    ;;
 	mc)
-	    oldfile="mc12_${tag}/mc12.txt"
+	    dest_dir="mc12_${tag}"
+	    oldfile="${dest_dir}/mc12.txt"
+	    mkdir -p ${dest_dir}
 	    createDummyFileIfMissing ${oldfile}
 	    dq2-ls "user.${nickname}.mc12_8TeV.*.SusyNt.*${tag}*/" | egrep -v "${signal_pattern}" | sort | egrep "${suffix}" > ${newfile}
 	    exitOnMissingFile ${newfile}
 	    mvIfHasMoreLines ${newfile} ${oldfile}
+	    chmodDestDir ${dest_dir}
 	    ;;
 	susy)
-	    oldfile="susy_${tag}/susy.txt"
+	    dest_dir="susy_${tag}"
+	    oldfile="${dest_dir}/susy.txt"
+	    mkdir -p ${dest_dir}
 	    createDummyFileIfMissing ${oldfile}
-        dq2-ls "user.${nickname}.mc12_8TeV.*.SusyNt.*${tag}*/" | egrep "${signal_pattern}" | sort | egrep "${suffix}" > ${newfile}
+	    dq2-ls "user.${nickname}.mc12_8TeV.*.SusyNt.*${tag}*/" | egrep "${signal_pattern}" | sort | egrep "${suffix}" > ${newfile}
 	    exitOnMissingFile ${newfile}
 	    mvIfHasMoreLines ${newfile} ${oldfile}
+	    chmodDestDir ${dest_dir}
 	    ;;
 	*)
 	    echo "Invalid mode ${mode}. Usage updateLists.sh TAG MODE, where MODE in (data, mc, susy)."
