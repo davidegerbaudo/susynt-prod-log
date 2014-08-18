@@ -62,25 +62,28 @@ function updateList {
     local newfile="/tmp/dq2-ls-tmp.txt"
     local signal_pattern="simplifiedModel|DGnoSL|DGemtR|DGstauR|RPV|pMSSM|_DGN|MSUGRA|GGM|sM_wA|Herwigpp_UEEE3_CTEQ6L1_C1C1|Herwigpp_UEEE3_CTEQ6L1_C1N2"
     local nickname=$USER
+    local suffix="${tag}/" # panda style output container
+    suffix+="|${tag}.*root/" # new jedi output container
+
     case "${mode}" in
 	data)
 	    oldfile="data12_${tag}/data12.txt"
 	    createDummyFileIfMissing ${oldfile}
-	    dq2-ls "user.${nickname}.group.phys-susy.data12*physics*.SusyNt.*${tag}/" | sort > ${newfile}
+	    dq2-ls "user.${nickname}.group.phys-susy.data12*physics*.SusyNt.*${tag}*/" | sort | egrep "${suffix}" > ${newfile}
 	    exitOnMissingFile ${newfile}
 	    mvIfHasMoreLines ${newfile} ${oldfile}
 	    ;;
 	mc)
 	    oldfile="mc12_${tag}/mc12.txt"
 	    createDummyFileIfMissing ${oldfile}
-	    dq2-ls "user.${nickname}.mc12_8TeV.*.SusyNt.*${tag}/" | egrep -v "${signal_pattern}" | sort > ${newfile}
+	    dq2-ls "user.${nickname}.mc12_8TeV.*.SusyNt.*${tag}*/" | egrep -v "${signal_pattern}" | sort | egrep "${suffix}" > ${newfile}
 	    exitOnMissingFile ${newfile}
 	    mvIfHasMoreLines ${newfile} ${oldfile}
 	    ;;
 	susy)
 	    oldfile="susy_${tag}/susy.txt"
 	    createDummyFileIfMissing ${oldfile}
-        dq2-ls "user.${nickname}.mc12_8TeV.*.SusyNt.*${tag}/" | egrep "${signal_pattern}" | sort > ${newfile}
+        dq2-ls "user.${nickname}.mc12_8TeV.*.SusyNt.*${tag}*/" | egrep "${signal_pattern}" | sort | egrep "${suffix}" > ${newfile}
 	    exitOnMissingFile ${newfile}
 	    mvIfHasMoreLines ${newfile} ${oldfile}
 	    ;;
