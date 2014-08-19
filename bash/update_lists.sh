@@ -69,7 +69,7 @@ function chmodDestDir {
     chmod -f -R a+rw dest_dir
 }
 
-function updateList {
+function update_list {
     local tag=$1
     local mode=$2
     local oldfile=""
@@ -115,11 +115,11 @@ function updateList {
 	    chmodDestDir ${dest_dir}
 	    ;;
 	*)
-	    echo "Invalid mode ${mode}. Usage updateLists.sh TAG MODE, where MODE in (data, mc, susy)."
+	    echo "Invalid mode ${mode}. Usage update_lists.sh TAG MODE, where MODE in (data, mc, susy)."
 	    ;;
     esac
 }
 
 #___________________________________________________________
 checkTag $*
-updateList $*
+update_list $*

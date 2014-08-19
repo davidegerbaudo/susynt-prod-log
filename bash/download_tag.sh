@@ -13,22 +13,22 @@ readonly PROGDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 function prepare {
     local tag=${1}
     echo "Preparing directories and lists for ${tag}"
-    ${PROGDIR}/updateLists.sh ${tag} data
-    ${PROGDIR}/updateLists.sh ${tag} mc
-    ${PROGDIR}/updateLists.sh ${tag} susy
+    ${PROGDIR}/update_lists.sh ${tag} data
+    ${PROGDIR}/update_lists.sh ${tag} mc
+    ${PROGDIR}/update_lists.sh ${tag} susy
 }
 
 function download_tag {
     local tag=${1}
     echo "Downloading ${tag}"
     cd data12_${tag}/
-    ${PROGDIR}/downloadDatasetList.sh data12.txt
+    ${PROGDIR}/download_datasetList.sh data12.txt
     cd ../
     cd mc12_${tag}/
-    ${PROGDIR}/downloadDatasetList.sh mc12.txt
+    ${PROGDIR}/download_datasetList.sh mc12.txt
     cd ../
     cd susy_${tag}/
-    ${PROGDIR}/downloadDatasetList.sh susy.txt
+    ${PROGDIR}/download_datasetList.sh susy.txt
     cd ../
     echo "done"
 }

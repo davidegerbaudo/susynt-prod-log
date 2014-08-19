@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This script downloads all the datasets from a list.txt
-# It just wraps downloadDataset.sh
+# It just wraps download_dataset.sh
 #
 # davide.gerbaudo@gmail.com
 # Aug 2014
@@ -15,7 +15,7 @@ function download_filelist {
     # drop empty and comment lines
     for line in $( cat ${filelist} | sed '/^\s*$/d' | sed '/^\#/d' )
     do
-        ${PROGDIR}/downloadDataset.sh ${line}
+        ${PROGDIR}/download_dataset.sh ${line}
     done
 }
 
