@@ -1,11 +1,14 @@
 #!/bin/bash
 
 # This script updates the data/mc/signal samples lists for a given tag.
-# Setup DQ2 and voms proxy before running this.
-# There is some duplication with prepareTag.sh (discuss this with Steve and fix it).
+# Setup DQ2 and voms proxy before running it.
 #
 # davide.gerbaudo@gmail.com
 # Feb 2013
+
+readonly PROGNAME=$(basename $0)
+# see http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in
+readonly PROGDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 function checkTag {
     if [ $# -lt 1 ]
@@ -16,6 +19,7 @@ function checkTag {
     local tag=$1
 }
 
+# \todo this check should be more accurate (i.e. not just counting lines) DG-2014-08-18
 function mvIfHasMoreLines {
     local newfile=$1
     local oldfile=$2
@@ -55,6 +59,11 @@ function exitOnMissingFile {
     done
 }
 
+function check_for_duplicates {
+    local filelist=${1}
+    ${PROGDIR}/../python/checkForDuplicatesInList.py ${filelist} --overwrite
+}
+
 function chmodDestDir {
     local dest_dir=${1}
     chmod -f -R a+rw dest_dir
@@ -80,6 +89,7 @@ function updateList {
 	    dq2-ls "user.${nickname}.group.phys-susy.data12*physics*.SusyNt.*${tag}*/" | sort | egrep "${suffix}" > ${newfile}
 	    exitOnMissingFile ${newfile}
 	    mvIfHasMoreLines ${newfile} ${oldfile}
+	    check_for_duplicates ${oldfile}
 	    chmodDestDir ${dest_dir}
 	    ;;
 	mc)
@@ -90,6 +100,7 @@ function updateList {
 	    dq2-ls "user.${nickname}.mc12_8TeV.*.SusyNt.*${tag}*/" | egrep -v "${signal_pattern}" | sort | egrep "${suffix}" > ${newfile}
 	    exitOnMissingFile ${newfile}
 	    mvIfHasMoreLines ${newfile} ${oldfile}
+	    check_for_duplicates ${oldfile}
 	    chmodDestDir ${dest_dir}
 	    ;;
 	susy)
@@ -100,6 +111,7 @@ function updateList {
 	    dq2-ls "user.${nickname}.mc12_8TeV.*.SusyNt.*${tag}*/" | egrep "${signal_pattern}" | sort | egrep "${suffix}" > ${newfile}
 	    exitOnMissingFile ${newfile}
 	    mvIfHasMoreLines ${newfile} ${oldfile}
+	    check_for_duplicates ${oldfile}
 	    chmodDestDir ${dest_dir}
 	    ;;
 	*)
@@ -108,6 +120,6 @@ function updateList {
     esac
 }
 
-# main script
+#___________________________________________________________
 checkTag $*
 updateList $*
