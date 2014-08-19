@@ -33,6 +33,14 @@ function mkdir_if_needed {
     fi
 }
 
+function dir_is_emtpy {
+    local target=${1}
+    if [ -n "$(find ${target} -prune -empty)" ]
+    then
+        echo "1"
+    fi
+}
+
 function main {
     if [ $# -lt 1 ]; then { help; exit 1; } fi
     local dataset=${1}
@@ -51,9 +59,14 @@ function main {
     dq2_default_options+=" --to-here=${destination_dir}"
     
     mkdir_if_needed ${destination_dir}
-    local cmd="dq2-get ${dq2_default_options} ${other_options} ${dataset}"
-    echo ${cmd}
-    ${cmd}
+    if [ $(dir_is_emtpy ${destination_dir}) ]
+    then
+        local cmd="dq2-get ${dq2_default_options} ${other_options} ${dataset}"
+        echo ${cmd}
+        ${cmd}
+    else
+        echo "skipping non-emtpy dir ${destination_dir}"
+    fi
 }
 #___________________________________________________________
 
