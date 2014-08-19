@@ -22,13 +22,13 @@ function download_tag {
     local tag=${1}
     echo "Downloading ${tag}"
     cd data12_${tag}/
-    ${PROGDIR}/download_datasetList.sh data12.txt
+    ${PROGDIR}/download_dataset_list.sh data12.txt
     cd ../
     cd mc12_${tag}/
-    ${PROGDIR}/download_datasetList.sh mc12.txt
+    ${PROGDIR}/download_dataset_list.sh mc12.txt
     cd ../
     cd susy_${tag}/
-    ${PROGDIR}/download_datasetList.sh susy.txt
+    ${PROGDIR}/download_dataset_list.sh susy.txt
     cd ../
     echo "done"
 }
