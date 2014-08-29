@@ -19,7 +19,7 @@ function help {
 # Determine from the dataset name the name of the destination directory
 function dest_dir_from_datasetname {
     local dataset=${1}
-    local jedi_style_suffix="_susyNt.root" # dropping the suffix introduced by jedi will make things bk-compatible
+    local jedi_style_suffix="_nt" # dropping the suffix introduced by jedi will make things bk-compatible
     local dest_dir=${dataset/${jedi_style_suffix}/}
     echo "${dest_dir}"
 }
