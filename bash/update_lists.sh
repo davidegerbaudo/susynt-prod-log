@@ -76,8 +76,9 @@ function update_list {
     local dest_dir=""
     local newfile="/tmp/dq2-ls-tmp.txt"
     local signal_pattern="simplifiedModel|DGnoSL|DGemtR|DGstauR|RPV|pMSSM|_DGN|MSUGRA|GGM|sM_wA|Herwigpp_UEEE3_CTEQ6L1_C1C1|Herwigpp_UEEE3_CTEQ6L1_C1N2"
-    local suffix="${tag}/" # panda style output container
-    suffix+="|${tag}.*root/" # new jedi output container
+    local suffix=""
+    suffix+="${tag}/" # panda style output container
+    suffix+="|${tag}_nt/" # new jedi output container
 
     case "${mode}" in
 	data)
@@ -85,7 +86,7 @@ function update_list {
 	    oldfile="${dest_dir}/data12.txt"
 	    mkdir -p ${dest_dir}
 	    createDummyFileIfMissing ${oldfile}
-	    dq2-ls "group.phys-susy.*data12*physics*.SusyNt.*${tag}_nt/" | sort | egrep "${suffix}" > ${newfile}
+	    dq2-ls "group.phys-susy.*data12*physics*.SusyNt.*${tag}*/" | sort | egrep "${suffix}" > ${newfile}
 	    exitOnMissingFile ${newfile}
 	    mvIfHasMoreLines ${newfile} ${oldfile}
 	    check_for_duplicates ${oldfile}
@@ -96,7 +97,7 @@ function update_list {
 	    oldfile="${dest_dir}/mc12.txt"
 	    mkdir -p ${dest_dir}
 	    createDummyFileIfMissing ${oldfile}
-	    dq2-ls "group.phys-susy.mc12_8TeV.*.SusyNt.*${tag}_nt/" | egrep -v "${signal_pattern}" | sort | egrep "${suffix}" > ${newfile}
+	    dq2-ls "group.phys-susy.mc12_8TeV.*.SusyNt.*${tag}*/" | egrep -v "${signal_pattern}" | sort | egrep "${suffix}" > ${newfile}
 	    exitOnMissingFile ${newfile}
 	    mvIfHasMoreLines ${newfile} ${oldfile}
 	    check_for_duplicates ${oldfile}
@@ -107,7 +108,7 @@ function update_list {
 	    oldfile="${dest_dir}/susy.txt"
 	    mkdir -p ${dest_dir}
 	    createDummyFileIfMissing ${oldfile}
-	    dq2-ls "group.phys-susy.mc12_8TeV.*.SusyNt.*${tag}_nt/" | egrep "${signal_pattern}" | sort | egrep "${suffix}" > ${newfile}
+	    dq2-ls "group.phys-susy.mc12_8TeV.*.SusyNt.*${tag}*/" | egrep "${signal_pattern}" | sort | egrep "${suffix}" > ${newfile}
 	    exitOnMissingFile ${newfile}
 	    mvIfHasMoreLines ${newfile} ${oldfile}
 	    check_for_duplicates ${oldfile}
