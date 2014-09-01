@@ -11,7 +11,7 @@ def parseSusyntSampleName(samplename='', verbose=False) :
     "Parse a sample name and split it into meaningful parts"
     # template sample name:
     # user.sfarrell.mc12_8TeV.174834.Sherpa_CT10_llll_ZZ.SusyNt.e1721_s1581_s1586_r3658_r3549_p1328_n0127
-    rep = re.compile('user\.(?P<user>.*?)\.'   # user (non greedy)
+    rep = re.compile('(user|group)\.(?P<user>.*?)\.'   # user (non greedy)
                      +'(?P<sample>.*?)\.'      # sample (non greedy)
                      +'SusyNt\.'
                      +'(?P<tag>.*)') # tag is the last token (greedy), everything that's left
