@@ -75,7 +75,11 @@ function update_list {
     local oldfile=""
     local dest_dir=""
     local newfile="/tmp/dq2-ls-tmp.txt"
-    local signal_pattern="simplifiedModel|DGnoSL|DGemtR|DGstauR|RPV|pMSSM|_DGN|MSUGRA|GGM|sM_wA|Herwigpp_UEEE3_CTEQ6L1_C1C1|Herwigpp_UEEE3_CTEQ6L1_C1N2"
+    local signal_pattern=""
+    signal_pattern+="simplifiedModel"
+    signal_pattern+="|DGnoSL|DGemtR|DGstauR|RPV|pMSSM|_DGN|MSUGRA|GGM|sM_wA"
+    signal_pattern+="|Herwigpp_UEEE3_CTEQ6L1_C1C1|Herwigpp_UEEE3_CTEQ6L1_C1N2"
+    signal_pattern+="|Herwigpp_UEEE3_CTEQ6L1_wA_c1n2"
     local suffix=""
     suffix+="${tag}/" # panda style output container
     suffix+="|${tag}_nt/" # new jedi output container
