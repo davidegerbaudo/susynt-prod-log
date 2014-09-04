@@ -19,17 +19,19 @@ function checkTag {
     local tag=$1
 }
 
-# \todo this check should be more accurate (i.e. not just counting lines) DG-2014-08-18
-function mvIfHasMoreLines {
+function appendNewDatasets {
     local newfile=$1
     local oldfile=$2
-    local numnewlines=$(echo $(wc -l < ${newfile}))
+    local tmpfile="${oldfile}.tmp"
+    cat ${oldfile} > ${tmpfile}
+    ${PROGDIR}/../python/hasMoreDatasets.py ${oldfile} ${newfile} >> ${tmpfile}
+    local numnewlines=$(echo $(wc -l < ${tmpfile}))
     local numoldlines=$(echo $(wc -l < ${oldfile}))
     local extralines=$(( ${numnewlines} - ${numoldlines} ))
     if [[ ${extralines} -gt 0 ]]
 	then
 	    mv ${oldfile} ${oldfile}.old
-	    mv ${newfile} ${oldfile}
+	    mv ${tmpfile} ${oldfile}
     else
 	echo "No new lines"
     fi
@@ -92,7 +94,7 @@ function update_list {
 	    createDummyFileIfMissing ${oldfile}
 	    dq2-ls "group.phys-susy.*data12*physics*.SusyNt.*${tag}*/" | sort | egrep "${suffix}" > ${newfile}
 	    exitOnMissingFile ${newfile}
-	    mvIfHasMoreLines ${newfile} ${oldfile}
+	    appendNewDatasets ${newfile} ${oldfile}
 	    check_for_duplicates ${oldfile}
 	    chmodDestDir ${dest_dir}
 	    ;;
@@ -103,7 +105,7 @@ function update_list {
 	    createDummyFileIfMissing ${oldfile}
 	    dq2-ls "group.phys-susy.mc12_8TeV.*.SusyNt.*${tag}*/" | egrep -v "${signal_pattern}" | sort | egrep "${suffix}" > ${newfile}
 	    exitOnMissingFile ${newfile}
-	    mvIfHasMoreLines ${newfile} ${oldfile}
+	    appendNewDatasets ${newfile} ${oldfile}
 	    check_for_duplicates ${oldfile}
 	    chmodDestDir ${dest_dir}
 	    ;;
@@ -114,7 +116,7 @@ function update_list {
 	    createDummyFileIfMissing ${oldfile}
 	    dq2-ls "group.phys-susy.mc12_8TeV.*.SusyNt.*${tag}*/" | egrep "${signal_pattern}" | sort | egrep "${suffix}" > ${newfile}
 	    exitOnMissingFile ${newfile}
-	    mvIfHasMoreLines ${newfile} ${oldfile}
+	    appendNewDatasets ${newfile} ${oldfile}
 	    check_for_duplicates ${oldfile}
 	    chmodDestDir ${dest_dir}
 	    ;;
