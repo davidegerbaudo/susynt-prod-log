@@ -82,6 +82,7 @@ function update_list {
     signal_pattern+="|DGnoSL|DGemtR|DGstauR|RPV|pMSSM|_DGN|MSUGRA|GGM|sM_wA"
     signal_pattern+="|Herwigpp_UEEE3_CTEQ6L1_C1C1|Herwigpp_UEEE3_CTEQ6L1_C1N2"
     signal_pattern+="|Herwigpp_UEEE3_CTEQ6L1_wA_c1n2"
+    signal_pattern+="|H125_taue|H125_taumu"
     local suffix=""
     suffix+="${tag}/" # panda style output container
     suffix+="|${tag}_nt/" # new jedi output container
