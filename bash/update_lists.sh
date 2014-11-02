@@ -68,7 +68,7 @@ function check_for_duplicates {
 
 function chmodDestDir {
     local dest_dir=${1}
-    chmod -f -R a+rw dest_dir
+    chmod --silent --recursive a+rw ${dest_dir}
 }
 
 function update_list {
