@@ -93,7 +93,8 @@ function update_list {
 	    oldfile="${dest_dir}/data12.txt"
 	    mkdir -p ${dest_dir}
 	    createDummyFileIfMissing ${oldfile}
-	    dq2-ls "group.phys-susy.*data12*physics*.SusyNt.*${tag}*/" | sort | egrep "${suffix}" > ${newfile}
+	    dq2-ls "group.phys-susy.*data12*physics*.SusyNt.*${tag}*/" | sort | egrep "${suffix}" >  ${newfile}
+	    dq2-ls "user.${USER}.*data12*physics*.SusyNt.*${tag}*/" | sort | egrep "${suffix}"    >> ${newfile}
 	    exitOnMissingFile ${newfile}
 	    appendNewDatasets ${newfile} ${oldfile}
 	    check_for_duplicates ${oldfile}
@@ -104,7 +105,8 @@ function update_list {
 	    oldfile="${dest_dir}/mc12.txt"
 	    mkdir -p ${dest_dir}
 	    createDummyFileIfMissing ${oldfile}
-	    dq2-ls "group.phys-susy.mc12_8TeV.*.SusyNt.*${tag}*/" | egrep -v "${signal_pattern}" | sort | egrep "${suffix}" > ${newfile}
+	    dq2-ls "group.phys-susy.mc14_8TeV.*.SusyNt.*${tag}*/" | egrep -v "${signal_pattern}" | sort | egrep "${suffix}" >  ${newfile}
+	    dq2-ls "user.${USER}.mc14_8TeV.*.SusyNt.*${tag}*/" | egrep -v "${signal_pattern}" | sort | egrep "${suffix}"    >> ${newfile}
 	    exitOnMissingFile ${newfile}
 	    appendNewDatasets ${newfile} ${oldfile}
 	    check_for_duplicates ${oldfile}
@@ -115,7 +117,8 @@ function update_list {
 	    oldfile="${dest_dir}/susy.txt"
 	    mkdir -p ${dest_dir}
 	    createDummyFileIfMissing ${oldfile}
-	    dq2-ls "group.phys-susy.mc12_8TeV.*.SusyNt.*${tag}*/" | egrep "${signal_pattern}" | sort | egrep "${suffix}" > ${newfile}
+	    dq2-ls "group.phys-susy.mc12_8TeV.*.SusyNt.*${tag}*/" | egrep "${signal_pattern}" | sort | egrep "${suffix}" >  ${newfile}
+	    dq2-ls "user.${USER}.mc14_8TeV.*.SusyNt.*${tag}*/" | egrep "${signal_pattern}" | sort | egrep "${suffix}"    >> ${newfile}
 	    exitOnMissingFile ${newfile}
 	    appendNewDatasets ${newfile} ${oldfile}
 	    check_for_duplicates ${oldfile}
