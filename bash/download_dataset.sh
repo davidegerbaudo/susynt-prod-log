@@ -21,6 +21,10 @@ function dest_dir_from_datasetname {
     local dataset=${1}
     local jedi_style_suffix="_nt" # dropping the suffix introduced by jedi will make things bk-compatible
     local dest_dir=${dataset/${jedi_style_suffix}/}
+    if [[ ${dest_dir} == *":"* ]] # new (rucio?) dset names are user.blah:user.bla.mc13<...>_nt/
+        then
+        dest_dir=$(echo ${dest_dir} | cut -d ':' -f 2)
+    fi
     echo "${dest_dir}"
 }
 
