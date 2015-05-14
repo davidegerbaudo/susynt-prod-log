@@ -60,14 +60,16 @@ function main {
     dq2_default_options+=" --threads=3,5" # concurrent datasets,files
     dq2_default_options+=" --no-directories"
     dq2_default_options+=" --files=*.root*"
-    dq2_default_options+=" --to-here=${destination_dir}"
+    dq2_default_options+=" --to-here=./"
     
     mkdir_if_needed ${destination_dir}
     if [ $(dir_is_emtpy ${destination_dir}) ]
     then
+        pushd ${destination_dir}
         local cmd="dq2-get ${dq2_default_options} ${other_options} ${dataset}"
         echo ${cmd}
         ${cmd}
+        popd
     else
         echo "skipping non-emtpy dir ${destination_dir}"
     fi
