@@ -1,25 +1,11 @@
 #!/bin/bash
 
-# Script to download a dataset
-
-# This script is just a wrapper around dq2-get to download all the
-# root files and put them in a directory with name=dataset_name.
-
-# Based on Steve's (sfarrell@cern.ch) NtDownload.sh
-# davide.gerbaudo@gmail.com
-# Aug 2014
-
 readonly PROGNAME=$(basename $0)
 readonly PROGDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-function help {
-    echo "Usage: ${PROGNAME} dataset [other-dq2-options]"
-}
-
-# Determine from the dataset name the name of the destination directory
 function dest_dir_from_datasetname {
     local dataset=${1}
-    local jedi_style_suffix="_nt" # dropping the suffix introduced by jedi will make things bk-compatible
+    local jedi_style_suffix="_nt"
     local dest_dir=${dataset/${jedi_style_suffix}/}
     echo "${dest_dir}"
 }
@@ -33,7 +19,7 @@ function mkdir_if_needed {
     fi
 }
 
-function dir_is_emtpy {
+function dir_is_empty {
     local target=${1}
     if [ -n "$(find ${target} -prune -empty)" ]
     then
@@ -42,7 +28,8 @@ function dir_is_emtpy {
 }
 
 function main {
-    if [ $# -lt 1 ]; then { help; exit 1; } fi
+    if [ $# -lt 1 ]; then { exit 1; } fi
+
     local dataset=${1}
     shift
     local other_options=""
@@ -51,23 +38,24 @@ function main {
         other_options="${other_options} $1"
         shift
     done
+
     local destination_dir=$(dest_dir_from_datasetname ${dataset})
-    local dq2_default_options=""
-    dq2_default_options+=" --threads=3,5" # concurrent datasets,files
-    dq2_default_options+=" --no-directories"
-    dq2_default_options+=" --files=*.root*"
-    dq2_default_options+=" --to-here=${destination_dir}"
-    
+    local rucio_options=""
+    rucio_options+=" --ndownloader=5" # need to test this
+
     mkdir_if_needed ${destination_dir}
-    if [ $(dir_is_emtpy ${destination_dir}) ]
+    if [ $(dir_is_empty ${destination_dir}) ]
     then
-        local cmd="dq2-get ${dq2_default_options} ${other_options} ${dataset}"
+        local cmd="rucio download ${rucio_options} ${dataset}"
         echo ${cmd}
         ${cmd}
     else
-        echo "skipping non-emtpy dir ${destination_dir}"
+        echo "skipping non-empty dir ${desination_dir}"
     fi
-}
-#___________________________________________________________
 
+    # remove empty directories produced by rucio (these have the <scope>:<dataset-name> structure)--> could this be safer (damn bash)!
+    find . -type d -empty -exec rmdir {} \;
+}
+
+#__________________
 main $*
